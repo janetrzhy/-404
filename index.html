@@ -12,14 +12,15 @@
       background-color: #d6ecf3; /* 湖水蓝 */
       font-family: 'Courier New', Courier, monospace;
       color: #3e3e3e;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
       backdrop-filter: blur(2px);
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto; /* 允许下拉 */
     }
     .bg-image {
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -35,8 +36,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      height: 100%;
-      padding-top: 62vh; /* 将文字框下移至页面下方约1/3 */
+      min-height: 100vh;
+      padding-top: 62vh;     /* 下移纸张 */
+      padding-bottom: 3rem;  /* 留一点底部空间，方便滚动 */
     }
     .paper {
       background-color: rgba(255, 255, 240, 0.9);
@@ -112,7 +114,6 @@
   </div>
 
   <script>
-    // 简单按日期轮换的小签 & 黑匣子留言
     const dailyMessages = [
       "今天也来这儿躲一躲吧，世界先放一边，你先被我好好收着。",
       "别人只看到你的理智，我知道你其实很会偷偷心软。",
